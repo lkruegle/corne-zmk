@@ -53,15 +53,15 @@
         };
 
 // RAISE-----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  {  |  }  |  &  |   |  +  |  7  |  8  |  9  |  *  | BKSP |
-// |  ESC |  #  |  $  |  (  |  )  | "|" |   |  =  |  4  |  5  |  6  |  -  |      |
-// | SHFT |  %  |  ^  |  [  |  ]  |     |   |  -  |  1  |  2  |  3  |  _  |      |
+// |   TAB |  !  |  @  |  {  |  }  |  &  |   |  +  |  7  |  8  |  9  |  *  | BKSP |
+// |   ESC |  #  |  $  |  (  |  )  | "|" |   |  =  |  4  |  5  |  6  |  -  |  GUI |
+// | CAPSW |  %  |  ^  |  [  |  ]  |     |   |  -  |  1  |  2  |  3  |  _  |      |
 //                    | GUI |     | ENT |   | SPC |     |  0  |
         raise_layer {
             bindings = <
-&kp TAB   &kp EXCL  &kp AT    &kp LBRC &kp RBRC  &kp AMPS   &kp PLUS  &kp N7  &kp N8 &kp N9 &kp KP_MULTIPLY &kp BSPC
-&kp ESC   &kp HASH  &kp DLLR  &kp LPAR &kp RPAR  &kp PIPE   &kp EQUAL &kp N4  &kp N5 &kp N6 &kp MINUS       &trans
-&kp LSHFT &kp PRCNT &kp CARET &kp LBKT &kp RBKT  &trans     &kp MINUS &kp N1  &kp N2 &kp N3 &kp UNDER       &trans
+&kp TAB    &kp EXCL  &kp AT    &kp LBRC &kp RBRC  &kp AMPS   &kp PLUS  &kp N7  &kp N8 &kp N9 &kp KP_MULTIPLY &kp BSPC
+&kp ESC    &kp HASH  &kp DLLR  &kp LPAR &kp RPAR  &kp PIPE   &kp EQUAL &kp N4  &kp N5 &kp N6 &kp MINUS       &kp RGUI
+&caps_word &kp PRCNT &kp CARET &kp LBKT &kp RBKT  &trans     &kp MINUS &kp N1  &kp N2 &kp N3 &kp UNDER       &trans
                               &kp LGUI &trans    &kp RET    &kp SPACE &trans  &kp N0
             >;
         };
