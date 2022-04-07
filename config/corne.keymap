@@ -52,9 +52,9 @@
 
         raise {
             bindings = <
-&trans &kp EXCL &kp AT &kp HASH &kp DLLR &kp AMPS   &trans &kp RG(LEFT) &kp RG(RIGHT) &trans &kp MINUS &trans
-&trans &kp GRAVE &kp EQUAL &kp MINUS &kp UNDER &kp PIPE   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-&trans &kp TILDE &kp CARET &kp PRCNT &kp PLUS &trans   &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans &kp RG(LEFT) &kp RG(RIGHT) &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
 &trans &trans &kp RET   &kp SPACE &trans &kp LS(SPACE)
             >;
         };
