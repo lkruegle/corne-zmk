@@ -4,9 +4,11 @@
  * SPDX-License-Identifier: MIT
  */
 
-#define ALPHA 0
-#define LOWER 1
-#define RAISE 2
+#define QWERTY 0
+#define COLEMAK_DH 1
+#define LOWER 2
+#define RAISE 3
+#define LAYOUT 4
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
@@ -31,15 +33,32 @@
         };
     };
 
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        layout_layer {
+            if-layers = <LOWER RAISE>;
+            then-layer = <LAYOUT>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
-        alphas {
+        alphas_qwerty {
             bindings = <
-&kp TAB    &kp Q       &kp W       &kp E      &kp R      &kp T          &kp Y       &kp U      &kp I           &kp O       &kp P          &kp MINUS
-&kp ESC    &hm LSHFT A &hm LCTRL S &hm LALT D &hm LGUI F &kp G          &kp H       &hm RGUI J &hm RALT K      &hm RCTRL L &hm RSHFT SEMI &kp SQT
-&caps_word &kp Z       &kp X       &kp C      &kp V      &kp B          &kp N       &kp M      &kp COMMA       &kp DOT     &kp FSLH       &kp BSLH
-                                              &none      &lt LOWER RET  &kp LSHFT   &kp BSPC   &lt RAISE SPACE &none
+&kp TAB    &kp Q       &kp W       &kp E      &kp R      &kp T          &kp Y        &kp U      &kp I           &kp O       &kp P          &kp MINUS
+&kp ESC    &hm LSHFT A &hm LCTRL S &hm LALT D &hm LGUI F &kp G          &kp H        &hm RGUI J &hm RALT K      &hm RCTRL L &hm RSHFT SEMI &kp SQT
+&caps_word &kp Z       &kp X       &kp C      &kp V      &kp B          &kp N        &kp M      &kp COMMA       &kp DOT     &kp FSLH       &kp BSLH
+                                              &none      &lt LOWER RET  &kp LSHFT    &kp BSPC   &lt RAISE SPACE &none
+            >;
+        };
+
+        colemak_dh {
+            bindings = <
+&trans &kp Q       &kp W       &kp F      &kp P      &kp B     &kp J  &kp L      &kp U      &kp Y       &kp SEMI    &trans
+&trans &hm LSHFT A &hm LCTRL R &hm LALT S &hm LGUI T &kp G     &kp M  &hm RGUI N &hm RALT E &hm RCTRL I &hm RSHFT O &trans
+&trans &kp Z       &kp X       &kp C      &kp D      &kp V     &kp K  &kp H      &kp COMMA  &kp DOT     &kp FSLH    &trans
+                               &trans     &trans     &trans    &trans &trans     &trans
             >;
         };
 
@@ -54,10 +73,19 @@
 
         raise {
             bindings = <
-&kp F1     &kp F2       &kp F3       &kp F4       &kp F5       &kp F6         &trans     &kp RG(LEFT) &kp RG(RIGHT) &trans     &trans       &trans
-&kp F7     &kp F8       &kp F9       &kp F10      &kp F11      &kp F12        &kp LEFT   &kp DOWN     &kp UP        &kp RIGHT  &kp C_VOL_UP &kp C_BRIGHTNESS_INC
-&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp C_PREV &kp C_PP     &kp C_NEXT    &kp C_MUTE &kp C_VOL_DN &kp C_BRIGHTNESS_DEC
-                                     &trans       &trans       &trans         &trans     &trans       &trans
+&kp F1     &kp F2       &kp F3       &kp F4       &kp F5       &kp F6          &trans     &kp RG(LEFT) &kp RG(RIGHT) &trans     &trans       &trans
+&kp F7     &kp F8       &kp F9       &kp F10      &kp F11      &kp F12         &kp LEFT   &kp DOWN     &kp UP        &kp RIGHT  &kp C_VOL_UP &kp C_BRIGHTNESS_INC
+&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &kp C_PREV &kp C_PP     &kp C_NEXT    &kp C_MUTE &kp C_VOL_DN &kp C_BRIGHTNESS_DEC
+                                     &trans       &trans       &trans          &trans     &trans   &trans
+            >;
+        };
+
+        layout {
+            bindings = <
+&to QWERTY &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &to COLEMAK_DH
+&trans     &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
+&trans     &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
+                         &trans &trans &trans    &trans &trans &trans
             >;
         };
     };
