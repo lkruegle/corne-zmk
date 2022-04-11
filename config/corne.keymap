@@ -35,7 +35,7 @@
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
-        layout_layer {
+        tri_layer {
             if-layers = <LOWER RAISE>;
             then-layer = <LAYOUT>;
         };
